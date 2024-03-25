@@ -8,6 +8,8 @@ import ListedBooks from "./pages/ListedBooks";
 import PagesToRead from "./pages/PagesToRead";
 import BookDetails from "./pages/BookDetails";
 import { Toaster } from "react-hot-toast";
+import Read from "./components/Read";
+import Wishlist from "./components/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,16 @@ const router = createBrowserRouter([
       {
         path: "/listed",
         element: <ListedBooks />,
+        children: [
+          {
+            index: true,
+            element: <Read/>,
+          },
+          {
+            path: 'wishlist',
+            element: <Wishlist/>
+          }
+        ]
       },
       {
         path: "/read",
