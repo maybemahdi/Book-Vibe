@@ -1,4 +1,6 @@
 import { Link, useLoaderData, useParams } from "react-router-dom";
+import { getLocal, save, saveForWishlist } from "../utils/local";
+import toast from "react-hot-toast";
 
 const BookDetails = () => {
   const books = useLoaderData();
@@ -17,6 +19,17 @@ const BookDetails = () => {
     publisher,
     yearOfPublishing,
   } = selected;
+  const handleRead = (selectedItem) => {
+    save(selectedItem);
+  };
+  const handleWishlist = (item) => {
+    const readItems = getLocal();
+    const isExist = readItems.find((i) => i.bookId === item.bookId);
+    if (isExist) {
+      return toast.error("You cant add read items to Wishlist");
+    }
+    saveForWishlist(item);
+  };
   return (
     <div className="flex lg:flex-row flex-col box-border gap-8 p-6 rounded-[16px] border border-[#13131326]">
       <div className="basis-1/2 rounded-[16px] box-border bg-[#F3F3F3] p-8 lg:h-[500px]">
@@ -68,7 +81,7 @@ const BookDetails = () => {
 
         <div className="flex gap-4 items-center mt-1">
           <Link
-            to="/"
+            onClick={() => handleRead(selected)}
             className="inline-flex items-center justify-center px-5 py-2 text-base font-medium leading-6 text-black whitespace-no-wrap hover:bg-[#23BE0A] rounded-md shadow-sm border border-[#23BE0A] hover:outline-none bg-[#ffffff] focus:outline-none"
             data-rounded="rounded-md"
             data-primary="blue-600"
@@ -77,7 +90,7 @@ const BookDetails = () => {
             Read
           </Link>
           <Link
-            to="/"
+            onClick={() => handleWishlist(selected)}
             className="inline-flex items-center justify-center px-5 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-[#59C6D2] rounded-md shadow-sm hover:bg-[#3ea8b4] focus:outline-none"
             data-rounded="rounded-md"
             data-primary="blue-600"

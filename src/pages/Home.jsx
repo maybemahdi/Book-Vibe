@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import bannerImg from "../assets/pngwing 1 (1).png";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
@@ -23,7 +23,7 @@ const Home = () => {
                 Books to freshen up your bookshelf
               </h2>
               <div className="rounded-lg">
-                <NavLink
+                <Link
                   to={"/listed"}
                   className="my-6 inline-flex items-center justify-center px-5 py-3 text-base font-medium leading-6 text-white whitespace-no-wrap rounded-md shadow-sm bg-[#23BE0A] focus:outline-none"
                   data-rounded="rounded-md"
@@ -31,7 +31,7 @@ const Home = () => {
                   data-primary-reset="{}"
                 >
                   View The List
-                </NavLink>
+                </Link>
               </div>
             </div>
           </div>
