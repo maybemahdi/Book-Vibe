@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { IoIosArrowDown } from "react-icons/io";
 
 const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -8,23 +9,30 @@ const ListedBooks = () => {
       <div className="flex item-center my-5 rounded-xl p-[33px] bg-[#1313130D] justify-center">
         <h3 className="text-[#131313] font-bold text-[28px]">Books</h3>
       </div>
-      <div className="dropdown">
-        <div tabIndex={0} role="button" className="btn m-1">
-          Click
+      <div className="dropdown flex my-10 items-center justify-center">
+        <div
+          tabIndex={0}
+          role="button"
+          className="px-7 py-2 flex items-center rounded-lg text-white font-bold gap-2 bg-green-600"
+        >
+          Short By <IoIosArrowDown />
         </div>
         <ul
           tabIndex={0}
-          className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+          className="dropdown-content p-1 mt-40 z-[1] menu shadow bg-[#1313130D] rounded-box"
         >
           <li>
-            <a>Item 1</a>
+            <a>Rating</a>
           </li>
           <li>
-            <a>Item 2</a>
+            <a>Number of Pages</a>
+          </li>
+          <li>
+            <a>Publisher Year</a>
           </li>
         </ul>
       </div>
-      <div className="flex items-center overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap">
+      <div className="flex mt-10 items-center overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap">
         <Link
           to={""}
           onClick={() => setTabIndex(0)}
