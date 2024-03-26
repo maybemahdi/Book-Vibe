@@ -1,4 +1,8 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useParams,
+} from "react-router-dom";
 import { getLocal, save, saveForWishlist } from "../utils/local";
 import toast from "react-hot-toast";
 
@@ -7,7 +11,6 @@ const BookDetails = () => {
   const { id } = useParams();
   const selected = books.find((book) => book.bookId === +id);
   const {
-    bookId,
     bookName,
     author,
     image,
