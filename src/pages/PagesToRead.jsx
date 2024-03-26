@@ -42,7 +42,7 @@ const PagesToRead = () => {
 
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
   };
-
+  if(read.length < 1) return <div className="my-20 text-4xl font-work font-bold text-center">Please add read item to show the stats!</div>
   return (
     <div className="md:w-[80%] w-[100%] h-[500px] mx-auto my-10">
       <ResponsiveContainer className="-ml-5" width="100%" height="100%">
