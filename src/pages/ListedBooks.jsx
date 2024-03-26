@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { IoIosArrowDown } from "react-icons/io";
 
-const ListedBooks = ({handleFilter}) => {
+const ListedBooks = () => {
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <div className="my-10">
-      <div className="flex item-center my-5 rounded-xl p-[33px] bg-[#1313130D] justify-center">
+      <div className="flex font-work item-center my-5 rounded-xl p-[33px] bg-[#1313130D] justify-center">
         <h3 className="text-[#131313] font-bold text-[28px]">Books</h3>
       </div>
       

@@ -1,8 +1,14 @@
-# React + Vite
+# Dynamic React Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Name : Books Vibe
+# Live URL : 
 
-Currently, two official plugins are available:
+# Features:
+1. Dynamic Routes And Nav Bar. <br/>
+2. Created a JSON Data for Fetching. <br/>
+3. Implemented LocalStorage For Saving Interection from Users <br/>
+4. React Icons And Toasts.
+5. React Recharts for Showing Stats.
+6. Sort-By Functionality For Read Books.
+7. Wishlist for Saving Books for Future.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

@@ -44,8 +44,8 @@ const PagesToRead = () => {
   };
 
   return (
-    <div className="md:w-[70%] w-[100%] h-[500px] mx-auto my-10">
-      <ResponsiveContainer width="100%" height="100%">
+    <div className="md:w-[80%] w-[100%] h-[500px] mx-auto my-10">
+      <ResponsiveContainer className="-ml-5" width="100%" height="100%">
         <BarChart
           data={data}
           margin={{

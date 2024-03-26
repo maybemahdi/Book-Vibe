@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import ListedBooks from "./pages/ListedBooks";
 import PagesToRead from "./pages/PagesToRead";
 import BookDetails from "./pages/BookDetails";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import { Toaster } from "react-hot-toast";
 import Read from "./components/Read";
 import Wishlist from "./components/Wishlist";
@@ -16,15 +18,15 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
       },
       {
-        path: '/book-details/:id',
-        element: <BookDetails/>,
+        path: "/book-details/:id",
+        element: <BookDetails />,
         loader: () => fetch("../data.json"),
       },
       {
@@ -33,17 +35,25 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Read/>,
+            element: <Read />,
           },
           {
-            path: 'wishlist',
-            element: <Wishlist/>
-          }
-        ]
+            path: "wishlist",
+            element: <Wishlist />,
+          },
+        ],
       },
       {
         path: "/read",
         element: <PagesToRead />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
     ],
   },
@@ -52,6 +62,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
-    <Toaster/>
+    <Toaster />
   </React.StrictMode>
 );
