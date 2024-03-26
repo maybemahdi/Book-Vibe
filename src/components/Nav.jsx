@@ -24,7 +24,7 @@ const Nav = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-md font-semibold dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
+              className="menu menu-md w-[150px] font-semibold dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box"
             >
               <li>
                 <NavLink to="/">Home</NavLink>
