@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import bannerImg from "../assets/pngwing 1 (1).png";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
 
 const Home = () => {
   const [books, setBooks] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("data.json");
@@ -13,6 +14,9 @@ const Home = () => {
     };
     fetchData();
   }, []);
+  if(navigate.state === "loading"){
+    return <h3>Loading</h3>
+  }
   return (
     <main className="my-10 font-work">
       <section className="text-black p-5 lg:p-24 bg-[#1313130D] rounded-[24px] bg-cover bg-center py-20 my-5">
