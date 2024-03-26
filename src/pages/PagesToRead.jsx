@@ -1,4 +1,12 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from "recharts";
+import {
+  BarChart,
+  Bar,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+} from "recharts";
 import { getLocal } from "../utils/local";
 import { useEffect, useState } from "react";
 
@@ -36,27 +44,28 @@ const PagesToRead = () => {
   };
 
   return (
-    <div className="w-[80%] h-[80%] mx-auto my-10 flex flex-col items-center">
-      <BarChart
-        width={800}
-        height={500}
-        data={data}
-        margin={{
-          top: 20,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Bar dataKey="uv" shape={<TriangleBar />} label={{ position: "top" }}>
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-          ))}
-        </Bar>
-      </BarChart>
+    <div className="md:w-[70%] w-[100%] h-[500px] mx-auto my-10">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          data={data}
+          margin={{
+            top: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Bar dataKey="uv" shape={<TriangleBar />} label={{ position: "top" }}>
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={colors[index % colors.length]}
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };
